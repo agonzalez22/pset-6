@@ -1,0 +1,39 @@
+h1#center {
+  text-align: center;
+  font-style: oblique;
+  font-family: helvetica;
+  font-weight: bold;
+}
+.button {
+  background-color: #008080;
+  border-radius: 8px;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 10px;
+  font-weight: bold;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-style: oblique;
+  font-family: helvetica;
+  transition-duration: 0.3s;
+  position: absolute;
+  right: 700px;
+  top: 100px;
+}
+.button:hover {
+  background-color: white;
+  color: #008080;
+  border: 1px solid #008080;
+}
+input {
+  font-style: oblique;
+  font-family: helvetica;
+  font-weight: lighter;
+  font-size: 20px;
+  position: absolute;
+  right: 850px;
+  top: 110px;
+}
