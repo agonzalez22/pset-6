@@ -58,4 +58,4 @@ function priority(){
 }
 document.getElementById('add').addEventListener('click', add);
 show();
-//i literally want t o d i e
+//google stop it
