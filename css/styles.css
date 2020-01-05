@@ -8,7 +8,7 @@ h1#center {
 body {
   color: #F7C8C8;
 }
-button#btn {
+button#add {
   background-color: #008080;
   border-radius: 8px;
   border: none;
@@ -25,11 +25,11 @@ button#btn {
   transition-duration: 0.3s;
   position: relative;
   top: 15px;
-  left: 83%;
+  left: 87%;
   margin-right: -50%;
   transform: translate(-50%, -50%)
 }
-button#btn:hover {
+button#add:hover {
   background-color: #F7C8C8;
   color: #008080;
   border: 1px solid #008080;
@@ -42,7 +42,7 @@ input {
   font-size: 20px;
   position: relative;
   top: 7%;
-    left: 30%;
+    left: 33%;
     margin-right: -50%;
     transform: translate(-50%, -50%)
   color: #F08080;
