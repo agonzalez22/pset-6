@@ -1,22 +1,83 @@
-h1#center {
-  text-align: center;
+*{
+  margin: 10px;
+  padding: 10;
   font-style: oblique;
   font-family: helvetica;
   font-weight: bold;
+}
+.bg{
+  width:70%;
+  margin: 20px auto;
+  padding:20px;
+}
+h1#center {
+  text-align: center;
   color: #F08080;
 }
 body {
+  width: 100%;
+  overflow-x: hidden;
   color: #F7C8C8;
 }
 button#add {
   background-color: #008080;
+  height: 35px;
+  border-radius: 3px;
+  float: right;
+  width: 20%;
+  color: white;
+  border: none;
+}
+button#add:hover {
+  background-color: #F7C8C8;
+  color: #008080;
+  border: 1px solid #008080;
+}
+input {
+  font-weight: lighter;
+  font-size: 20px;
+  width: 70%;
+  margin: 10px auto;
+  color: #F08080;
+}
+.remove {
+  background-color: #008080;
+  font-size: 14px;
+  float:right;
+  cursor: pointer;
+  border-radius: 3px;
+  border: none;
+  color: white;
+}
+.check{
+  background-color: #008080;
+  font-size: 14px;
+  float:right;
+  cursor: pointer;
+  border-radius: 3px;
+  border: none;
+  color: white;
+}
+.remove:hover {
+  background-color: #F7C8C8;
+  color: #008080;
+  border: 1px solid #008080;
+
+}
+.check:hover {
+    background-color: #F7C8C8;
+    color: #008080;
+    border: 1px solid #008080;
+}
+.check:active{
+  background-color: #BEDFA6;
   border-radius: 8px;
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 15px 20px;
   text-align: center;
   display: inline-block;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: bold;
   margin: 4px 2px;
   cursor: pointer;
@@ -24,26 +85,17 @@ button#add {
   font-family: helvetica;
   transition-duration: 0.3s;
   position: relative;
-  top: 15px;
-  left: 87%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%)
+  top:14%;
+  left: 925px;
 }
-button#add:hover {
-  background-color: #F7C8C8;
-  color: #008080;
-  border: 1px solid #008080;
-
+ul {
+  width: 70%;
+  list-style-type: none;
 }
-input {
-  font-style: oblique;
-  font-family: helvetica;
-  font-weight: lighter;
-  font-size: 20px;
-  position: relative;
-  top: 7%;
-    left: 33%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%)
-  color: #F08080;
+li#delicious{
+  margin-bottom: 20px;
+  padding: 20px;
+  font-size: 24px;
+  color:  #008080;
+  border-radius: 3px;
 }

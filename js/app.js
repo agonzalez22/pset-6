@@ -1,5 +1,11 @@
+window.onload = function(){
+  show();
+}
+function reload(){
+  location.reload(true);
+}
 function get_todos() {
-  var todos = new Array;
+  var todos = [];
   var todos_str = localStorage.getItem('todo');
   if (todos_str !== null) {
     todos = JSON.parse(todos_str);
@@ -14,6 +20,7 @@ function add() {
   todos.push(task);
   localStorage.setItem('todo', JSON.stringify(todos));
 
+  reload();
   show();
 
   return false;
@@ -35,7 +42,7 @@ function remove() {
 
     var html = '<ul>';
     for (var i = 0; i < todos.length; i++) {
-      html += '<li>' + todos[i] + '<button class="remove" id="' + i + '">x</button></li>';
+      html += '<li id="delicious">' + todos[i] + '<button class="check" id="' + i + '">done</button>' + '<button class="remove" id="' + i + '">x</button></li>';
     };
     html += '</ul>';
 
@@ -46,7 +53,9 @@ function remove() {
       buttons[i].addEventListener('click', remove);
     };
   }
-
+function priority(){
+  var priority
+}
 document.getElementById('add').addEventListener('click', add);
 show();
 //i literally want t o d i e
