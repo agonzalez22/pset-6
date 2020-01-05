@@ -12,81 +12,57 @@
 }
 h1#center {
   text-align: center;
-  color: #F08080;
+  color: #0c343d;
 }
 body {
   width: 100%;
   overflow-x: hidden;
-  color: #F7C8C8;
+  background-color: #eee2dc;
 }
 button#add {
-  background-color: #008080;
+  background-color: #bab2b5;
   height: 35px;
   border-radius: 3px;
   float: right;
   width: 20%;
   color: white;
-  border: none;
 }
 button#add:hover {
-  background-color: #F7C8C8;
-  color: #008080;
-  border: 1px solid #008080;
+  background-color: #bab2b5;
+  color: #0c343d;
 }
 input {
   font-weight: lighter;
   font-size: 20px;
   width: 70%;
   margin: 10px auto;
-  color: #F08080;
+  color: #edc7b7;
+  border-radius: 3px;
 }
 .remove {
-  background-color: #008080;
+  background-color: #bab2b5;
   font-size: 14px;
   float:right;
   cursor: pointer;
   border-radius: 3px;
-  border: none;
   color: white;
 }
 .check{
-  background-color: #008080;
+  background-color: #bab2b5;
   font-size: 14px;
   float:right;
   cursor: pointer;
   border-radius: 3px;
-  border: none;
   color: white;
 }
 .remove:hover {
-  background-color: #F7C8C8;
-  color: #008080;
-  border: 1px solid #008080;
+  background-color: #bab2b5;
+  color: #0c343d;
 
 }
 .check:hover {
-    background-color: #F7C8C8;
-    color: #008080;
-    border: 1px solid #008080;
-}
-.check:active{
-  background-color: #BEDFA6;
-  border-radius: 8px;
-  border: none;
-  color: white;
-  padding: 15px 20px;
-  text-align: center;
-  display: inline-block;
-  font-size: 14px;
-  font-weight: bold;
-  margin: 4px 2px;
-  cursor: pointer;
-  font-style: oblique;
-  font-family: helvetica;
-  transition-duration: 0.3s;
-  position: relative;
-  top:14%;
-  left: 925px;
+  background-color: #bab2b5;
+  color: #0c343d;
 }
 ul {
   width: 70%;
@@ -96,6 +72,6 @@ li#delicious{
   margin-bottom: 20px;
   padding: 20px;
   font-size: 24px;
-  color:  #008080;
+  color:  #0c343d;
   border-radius: 3px;
 }
