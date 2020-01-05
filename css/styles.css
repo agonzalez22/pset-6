@@ -3,8 +3,12 @@ h1#center {
   font-style: oblique;
   font-family: helvetica;
   font-weight: bold;
+  color: #F08080;
 }
-.button {
+body {
+  color: #F7C8C8;
+}
+button#btn {
   background-color: #008080;
   border-radius: 8px;
   border: none;
@@ -19,21 +23,27 @@ h1#center {
   font-style: oblique;
   font-family: helvetica;
   transition-duration: 0.3s;
-  position: absolute;
-  right: 700px;
-  top: 100px;
+  position: relative;
+  top: 15px;
+  left: 83%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
 }
-.button:hover {
-  background-color: white;
+button#btn:hover {
+  background-color: #F7C8C8;
   color: #008080;
   border: 1px solid #008080;
+
 }
 input {
   font-style: oblique;
   font-family: helvetica;
   font-weight: lighter;
   font-size: 20px;
-  position: absolute;
-  right: 850px;
-  top: 110px;
+  position: relative;
+  top: 7%;
+    left: 30%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+  color: #F08080;
 }
