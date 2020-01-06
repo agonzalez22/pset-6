@@ -6,6 +6,8 @@ var PRIORITY = 3;
 window.onload = function() {
   show();
   document.getElementById('add').addEventListener('click', add);
+  document.getElementById('add').addEventListener('keypress', handleKeyPress);
+  document.getElementById('task').addEventListener('keypress', handleKeyPress);
 }
 
 function reload() {
@@ -45,6 +47,11 @@ function done() {
 
   document.getElementById(index + "delicious").classList.remove("priority");
   document.getElementById(index + "delicious").classList.add("strike");
+}
+function handleKeyPress(e){
+  if (13 == e.keyCode){
+    add();
+  }
 }
 
 function add() {
