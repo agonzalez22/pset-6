@@ -12,9 +12,32 @@ function get_todos() {
   }
   return todos;
 }
+function priority() {
+  var id = this.getAttribute('id');
+  var todos = get_todos();
+
+  var newArray = todos.filter(function(text) {
+    return text != todos[id];
+  });
+
+  newArray.unshift(todos[id]);
+  localStorage.setItem('todo', JSON.stringify(newArray));
+  //todos.unshift(todos[id]);
+
+  show();
+}
+
+function done (){
+  var id = this.getAttribute('id');
+  document.getElementById(id+"delicious").classList.add("strike");
+}
 
 function add() {
   var task = document.getElementById('task').value;
+
+  if (task == '') {
+    return;
+  }
 
   var todos = get_todos();
   todos.push(task);
@@ -42,7 +65,10 @@ function remove() {
 
     var html = '<ul>';
     for (var i = 0; i < todos.length; i++) {
-      html += '<li id="delicious">' + todos[i] + '<button class="check" id="' + i + '">done</button>' + '<button class="remove" id="' + i + '">x</button></li>';
+      html += '<li class="delicious" id="' + i + 'delicious" value="' + todos[i] + '">'  + todos[i] +
+              '<button class="priority" id="' + i + '">!</button>' +
+              '<button class="check" id="' + i + '">done</button>' +
+              '<button class="remove" id="' + i + '">x</button></li>';
     };
     html += '</ul>';
 
@@ -52,10 +78,14 @@ function remove() {
     for (var i = 0; i < buttons.length; i++) {
       buttons[i].addEventListener('click', remove);
     };
+    buttons = document.getElementsByClassName('check');
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener('click', done);
+    };
+    buttons = document.getElementsByClassName('priority');
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener('click', priority);
+    };
   }
-function priority(){
-  var priority
-}
 document.getElementById('add').addEventListener('click', add);
 show();
-//google stop it
