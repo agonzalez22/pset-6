@@ -12,12 +12,12 @@
 }
 h1#center {
   text-align: center;
-  color: #0c343d;
+  color: #e77562;
 }
 body {
   width: 100%;
   overflow-x: hidden;
-  background-color: #eee2dc;
+  background-color: #FECFB8;
 }
 button#add {
   background-color: #bab2b5;
@@ -28,15 +28,15 @@ button#add {
   color: white;
 }
 button#add:hover {
-  background-color: #bab2b5;
-  color: #0c343d;
+  background-color: #FECFB8;
+  color: #bab2b5;
 }
 input {
   font-weight: lighter;
   font-size: 20px;
   width: 70%;
   margin: 10px auto;
-  color: #edc7b7;
+  color: #f6b6af;
   border-radius: 3px;
 }
 .remove {
@@ -56,13 +56,17 @@ input {
   color: white;
 }
 .remove:hover {
-  background-color: #bab2b5;
-  color: #0c343d;
+  background-color: #FECFB8;
+  color: #818181;
 
 }
 .check:hover {
-  background-color: #bab2b5;
-  color: #BEDFA6;
+  background-color: #FECFB8;
+  color: #818181;
+}
+button.priority:hover{
+  background-color: #FECFB8;
+  color: #818181;
 }
 ul {
   width: 70%;
@@ -72,13 +76,13 @@ li.delicious{
   margin-bottom: 20px;
   padding: 20px;
   font-size: 24px;
-  color:  #0c343d;
+  color:  #e77562;
   border-radius: 3px;
 }
 li.strike {
   text-decoration: line-through;
   weight: bold;
-  color: #BEDFA6;
+  color: #A2D67B;
   margin-bottom: 20px;
   padding: 20px;
   font-size: 24px;
@@ -93,7 +97,7 @@ button.priority {
 }
 li.priority {
   weight: bold;
-  color: red;
+  color: #DB1B15;
   margin-bottom: 20px;
   padding: 20px;
   font-size: 24px;
