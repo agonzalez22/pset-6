@@ -29,8 +29,7 @@ function priority() {
   todos[index][1] = PRIORITY;
   newArray.unshift(todos[index]);
   localStorage.setItem('todo', JSON.stringify(newArray));
-  //todos.unshift(todos[id]);
-  // document.getElementById(index+"delicious").classList.remove("delicious");
+
   document.getElementById(index+"delicious").classList.remove("strike");
   document.getElementById(index+"delicious").classList.add("priority");
   show();
@@ -41,7 +40,7 @@ function done (){
   var todos = get_todos();
   todos[index][1] = DONE;
   localStorage.setItem('todo', JSON.stringify(todos));
-  // document.getElementById(index+"delicious").classList.remove("delicious");
+  
   document.getElementById(index+"delicious").classList.remove("priority");
   document.getElementById(index+"delicious").classList.add("strike");
 }
