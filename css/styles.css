@@ -79,6 +79,9 @@ li.strike {
   text-decoration: line-through;
   weight: bold;
   color: #BEDFA6;
+  margin-bottom: 20px;
+  padding: 20px;
+  font-size: 24px;
 }
 button.priority {
   background-color: #bab2b5;
@@ -91,4 +94,7 @@ button.priority {
 li.priority {
   weight: bold;
   color: red;
+  margin-bottom: 20px;
+  padding: 20px;
+  font-size: 24px;
 }

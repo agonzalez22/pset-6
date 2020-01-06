@@ -1,11 +1,13 @@
-const DEFAULT = 0
-const DONE = 1
-const REMOVE = 2
-const PRIORITY = 3
+var DEFAULT = 0;
+var DONE = 1;
+var REMOVE = 2;
+var PRIORITY = 3;
 
 window.onload = function(){
   show();
+  document.getElementById('add').addEventListener('click', add);
 }
+
 function reload(){
   location.reload(true);
 }
@@ -18,23 +20,30 @@ function get_todos() {
   return todos;
 }
 function priority() {
-  var id = this.getAttribute('id');
+  var index = this.getAttribute('id');
   var todos = get_todos();
 
   var newArray = todos.filter(function(text) {
-    return text != todos[id];
+    return text != todos[index];
   });
-
-  newArray.unshift(todos[id]);
+  todos[index][1] = PRIORITY;
+  newArray.unshift(todos[index]);
   localStorage.setItem('todo', JSON.stringify(newArray));
   //todos.unshift(todos[id]);
-
+  // document.getElementById(index+"delicious").classList.remove("delicious");
+  document.getElementById(index+"delicious").classList.remove("strike");
+  document.getElementById(index+"delicious").classList.add("priority");
   show();
 }
 
 function done (){
-  var id = this.getAttribute('id');
-  document.getElementById(id+"delicious").classList.add("strike");
+  var index = this.getAttribute('id');
+  var todos = get_todos();
+  todos[index][1] = DONE;
+  localStorage.setItem('todo', JSON.stringify(todos));
+  // document.getElementById(index+"delicious").classList.remove("delicious");
+  document.getElementById(index+"delicious").classList.remove("priority");
+  document.getElementById(index+"delicious").classList.add("strike");
 }
 
 function add() {
@@ -48,9 +57,9 @@ function add() {
   todos.push(task);
   localStorage.setItem('todo', JSON.stringify(todos));
 
-  reload();
+  // reload();
   show();
-
+  document.getElementById('task').value = '';
   return false;
 }
 
@@ -98,5 +107,3 @@ function remove() {
         buttons[i].addEventListener('click', priority);
     };
   }
-document.getElementById('add').addEventListener('click', add);
-show();
