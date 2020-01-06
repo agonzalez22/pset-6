@@ -3,14 +3,15 @@ var DONE = 1;
 var REMOVE = 2;
 var PRIORITY = 3;
 
-window.onload = function(){
+window.onload = function() {
   show();
   document.getElementById('add').addEventListener('click', add);
 }
 
-function reload(){
+function reload() {
   location.reload(true);
 }
+
 function get_todos() {
   var todos = [];
   var todos_str = localStorage.getItem('todo');
@@ -19,6 +20,7 @@ function get_todos() {
   }
   return todos;
 }
+
 function priority() {
   var index = this.getAttribute('id');
   var todos = get_todos();
@@ -30,19 +32,19 @@ function priority() {
   newArray.unshift(todos[index]);
   localStorage.setItem('todo', JSON.stringify(newArray));
 
-  document.getElementById(index+"delicious").classList.remove("strike");
-  document.getElementById(index+"delicious").classList.add("priority");
+  document.getElementById(index + "delicious").classList.remove("strike");
+  document.getElementById(index + "delicious").classList.add("priority");
   show();
 }
 
-function done (){
+function done() {
   var index = this.getAttribute('id');
   var todos = get_todos();
   todos[index][1] = DONE;
   localStorage.setItem('todo', JSON.stringify(todos));
-  
-  document.getElementById(index+"delicious").classList.remove("priority");
-  document.getElementById(index+"delicious").classList.add("strike");
+
+  document.getElementById(index + "delicious").classList.remove("priority");
+  document.getElementById(index + "delicious").classList.add("strike");
 }
 
 function add() {
@@ -72,36 +74,36 @@ function remove() {
   return false;
 }
 
-  function show() {
-    var todos = get_todos();
+function show() {
+  var todos = get_todos();
 
-    var html = '<ul>';
-    for (var i = 0; i < todos.length; i++) {
-      var statusclass = "delicious";
-      if (todos[i][1] == DONE) {
-        statusclass = "strike";
-      } else if (todos[i][1] == PRIORITY ){
-        statusclass = "priority";
-      }
-      html += '<li class="' + statusclass + '" id="' + i + 'delicious" value="' + todos[i][0] + '">'  + todos[i][0] +
-              '<button class="priority" id="' + i + '">!</button>' +
-              '<button class="check" id="' + i + '">done</button>' +
-              '<button class="remove" id="' + i + '">x</button></li>';
-    };
-    html += '</ul>';
+  var html = '<ul>';
+  for (var i = 0; i < todos.length; i++) {
+    var statusclass = "delicious";
+    if (todos[i][1] == DONE) {
+      statusclass = "strike";
+    } else if (todos[i][1] == PRIORITY) {
+      statusclass = "priority";
+    }
+    html += '<li class="' + statusclass + '" id="' + i + 'delicious" value="' + todos[i][0] + '">' + todos[i][0] +
+      '<button class="priority" id="' + i + '">!</button>' +
+      '<button class="check" id="' + i + '">done</button>' +
+      '<button class="remove" id="' + i + '">x</button></li>';
+  };
+  html += '</ul>';
 
-    document.getElementById('todos').innerHTML = html;
+  document.getElementById('todos').innerHTML = html;
 
-    var buttons = document.getElementsByClassName('remove');
-    for (var i = 0; i < buttons.length; i++) {
-      buttons[i].addEventListener('click', remove);
-    };
-    buttons = document.getElementsByClassName('check');
-    for (var i = 0; i < buttons.length; i++) {
-        buttons[i].addEventListener('click', done);
-    };
-    buttons = document.getElementsByClassName('priority');
-    for (var i = 0; i < buttons.length; i++) {
-        buttons[i].addEventListener('click', priority);
-    };
-  }
+  var buttons = document.getElementsByClassName('remove');
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', remove);
+  };
+  buttons = document.getElementsByClassName('check');
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', done);
+  };
+  buttons = document.getElementsByClassName('priority');
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', priority);
+  };
+}
