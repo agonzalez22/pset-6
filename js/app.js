@@ -57,7 +57,6 @@ function add() {
   todos.push(task);
   localStorage.setItem('todo', JSON.stringify(todos));
 
-  // reload();
   show();
   document.getElementById('task').value = '';
   return false;
