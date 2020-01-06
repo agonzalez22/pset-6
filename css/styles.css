@@ -68,23 +68,27 @@ ul {
   width: 70%;
   list-style-type: none;
 }
-.delicious{
+li.delicious{
   margin-bottom: 20px;
   padding: 20px;
   font-size: 24px;
   color:  #0c343d;
   border-radius: 3px;
 }
-.strike {
+li.strike {
   text-decoration: line-through;
   weight: bold;
   color: #BEDFA6;
 }
-.priority {
+button.priority {
   background-color: #bab2b5;
   font-size: 14px;
   float:right;
   cursor: pointer;
   border-radius: 3px;
   color: white;
+}
+li.priority {
+  weight: bold;
+  color: red;
 }

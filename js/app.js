@@ -1,3 +1,8 @@
+const DEFAULT = 0
+const DONE = 1
+const REMOVE = 2
+const PRIORITY = 3
+
 window.onload = function(){
   show();
 }
@@ -33,12 +38,12 @@ function done (){
 }
 
 function add() {
-  var task = document.getElementById('task').value;
+  var text = document.getElementById('task').value;
 
-  if (task == '') {
+  if (text == '') {
     return;
   }
-
+  var task = [text, DEFAULT];
   var todos = get_todos();
   todos.push(task);
   localStorage.setItem('todo', JSON.stringify(todos));
@@ -65,7 +70,13 @@ function remove() {
 
     var html = '<ul>';
     for (var i = 0; i < todos.length; i++) {
-      html += '<li class="delicious" id="' + i + 'delicious" value="' + todos[i] + '">'  + todos[i] +
+      var statusclass = "delicious";
+      if (todos[i][1] == DONE) {
+        statusclass = "strike";
+      } else if (todos[i][1] == PRIORITY ){
+        statusclass = "priority";
+      }
+      html += '<li class="' + statusclass + '" id="' + i + 'delicious" value="' + todos[i][0] + '">'  + todos[i][0] +
               '<button class="priority" id="' + i + '">!</button>' +
               '<button class="check" id="' + i + '">done</button>' +
               '<button class="remove" id="' + i + '">x</button></li>';
