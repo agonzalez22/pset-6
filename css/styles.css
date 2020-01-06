@@ -62,7 +62,7 @@ input {
 }
 .check:hover {
   background-color: #bab2b5;
-  color: #0c343d;
+  color: #BEDFA6;
 }
 ul {
   width: 70%;
@@ -79,4 +79,12 @@ ul {
   text-decoration: line-through;
   weight: bold;
   color: #BEDFA6;
+}
+.priority {
+  background-color: #bab2b5;
+  font-size: 14px;
+  float:right;
+  cursor: pointer;
+  border-radius: 3px;
+  color: white;
 }
