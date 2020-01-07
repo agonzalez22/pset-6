@@ -30,23 +30,36 @@ function priority() {
   var newArray = todos.filter(function(text) {
     return text != todos[index];
   });
-  todos[index][1] = PRIORITY;
-  newArray.unshift(todos[index]);
+  if (todos[index][1] == PRIORITY){
+    todos[index][1] = DEFAULT;
+    document.getElementById(index).classList.remove("redpriority");
+    document.getElementById(index + "delicious").classList.remove("priorty");
+    document.getElementById(index + "delicious").classList.add("delicious");
+    newArray.push(todos[index]);
+  } else {
+    todos[index][1] = PRIORITY;
+    newArray.unshift(todos[index]);
+    document.getElementById(index).classList.add("redpriority");
+    document.getElementById(index + "delicious").classList.remove("strike");
+    document.getElementById(index + "delicious").classList.add("priority");
+  }
   localStorage.setItem('todo', JSON.stringify(newArray));
-
-  document.getElementById(index + "delicious").classList.remove("strike");
-  document.getElementById(index + "delicious").classList.add("priority");
   show();
 }
 
 function done() {
   var index = this.getAttribute('id');
   var todos = get_todos();
-  todos[index][1] = DONE;
+  if (todos[index][1] == DONE){
+    todos[index][1] = DEFAULT;
+    document.getElementById(index + "delicious").classList.remove("strike");
+    document.getElementById(index + "delicious").classList.add("delicious");
+  } else {
+    todos[index][1] = DONE;
+    document.getElementById(index + "delicious").classList.remove("priority");
+    document.getElementById(index + "delicious").classList.add("strike");
+  }
   localStorage.setItem('todo', JSON.stringify(todos));
-
-  document.getElementById(index + "delicious").classList.remove("priority");
-  document.getElementById(index + "delicious").classList.add("strike");
 }
 function handleKeyPress(e){
   if (13 == e.keyCode){
@@ -87,10 +100,12 @@ function show() {
   var html = '<ul>';
   for (var i = 0; i < todos.length; i++) {
     var statusclass = "delicious";
+    var buttonstatus = "";
     if (todos[i][1] == DONE) {
       statusclass = "strike";
     } else if (todos[i][1] == PRIORITY) {
       statusclass = "priority";
+      buttonstatus = "redpriority";
     }
     html += '<li class="' + statusclass + '" id="' + i + 'delicious" value="' + todos[i][0] + '">' + todos[i][0] +
       '<button class="priority" id="' + i + '">!</button>' +
