@@ -10,11 +10,7 @@ window.onload = function() {
   document.getElementById('task').addEventListener('keypress', handleKeyPress);
 }
 
-function reload() {
-  location.reload(true);
-}
-
-function get_todos() {
+function getToDos() {
   var todos = [];
   var todos_str = localStorage.getItem('todo');
   if (todos_str !== null) {
@@ -25,11 +21,12 @@ function get_todos() {
 
 function priority() {
   var index = this.getAttribute('id');
-  var todos = get_todos();
+  var todos = getToDos();
 
   var newArray = todos.filter(function(text) {
     return text != todos[index];
   });
+  
   if (todos[index][1] == PRIORITY){
     todos[index][1] = DEFAULT;
     document.getElementById(index).classList.remove("redpriority");
@@ -49,7 +46,7 @@ function priority() {
 
 function done() {
   var index = this.getAttribute('id');
-  var todos = get_todos();
+  var todos = getToDos();
   if (todos[index][1] == DONE){
     todos[index][1] = DEFAULT;
     document.getElementById(index + "delicious").classList.remove("strike");
@@ -61,6 +58,7 @@ function done() {
   }
   localStorage.setItem('todo', JSON.stringify(todos));
 }
+
 function handleKeyPress(e){
   if (13 == e.keyCode){
     add();
@@ -73,8 +71,9 @@ function add() {
   if (text == '') {
     return;
   }
+
   var task = [text, DEFAULT];
-  var todos = get_todos();
+  var todos = getToDos();
   todos.push(task);
   localStorage.setItem('todo', JSON.stringify(todos));
 
@@ -85,7 +84,7 @@ function add() {
 
 function remove() {
   var id = this.getAttribute('id');
-  var todos = get_todos();
+  var todos = getToDos();
   todos.splice(id, 1);
   localStorage.setItem('todo', JSON.stringify(todos));
 
@@ -95,7 +94,7 @@ function remove() {
 }
 
 function show() {
-  var todos = get_todos();
+  var todos = getToDos();
 
   var html = '<ul>';
   for (var i = 0; i < todos.length; i++) {
@@ -108,7 +107,7 @@ function show() {
       buttonstatus = "redpriority";
     }
     html += '<li class="' + statusclass + '" id="' + i + 'delicious" value="' + todos[i][0] + '">' + todos[i][0] +
-      '<button class="priority" id="' + i + '">!</button>' +
+      '<button class="priority ' + buttonstatus + '"  id="' + i + '">!</button>' +
       '<button class="check" id="' + i + '">done</button>' +
       '<button class="remove" id="' + i + '">x</button></li>';
   };

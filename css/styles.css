@@ -103,5 +103,5 @@ li.priority {
   font-size: 24px;
 }
 .redpriority{
-  background-color: #DB1B15;
+  background-color: #DB1B15 !important;
 }
